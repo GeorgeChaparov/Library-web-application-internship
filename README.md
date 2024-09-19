@@ -18,3 +18,5 @@ Key Features:
     
 
 This project was developed using HTML, CSS, JavaScript, Node.js (with Express), and SQLite for the database, with a focus on user-friendly navigation and content management.
+
+Install dependencies: npm install express node:http node:url path sqlite3 sqlite multer fs express-session nodemailer
