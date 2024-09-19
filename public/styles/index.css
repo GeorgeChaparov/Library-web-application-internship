@@ -1,0 +1,280 @@
+@keyframes show-banner-animation {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes hide-banner-animation {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+#banner-and-list-wrapper {
+	width: calc(100% - 30px);
+	height: 35vw;
+
+	background-color: transparent;
+
+	margin: 15px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#banner-warpper {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#banner-image {
+	width: 100%;
+	height: 100%;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	border-radius: 30px;
+}
+
+#banner-list {
+	overflow: hidden;
+	width: 100%;
+	height: 2.5vw;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+
+	transform: translateY(-2.3vw);
+	z-index: 10;
+
+	user-select: none;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	flex-wrap: nowrap;
+	justify-content: center;
+
+	background-color: rgba(68, 68, 68, 0.279);
+
+	border-bottom-right-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+
+#banner-list li {
+	display: inline-block;
+	height: 1.5vw;
+	width: 1.5vw;
+	background-color: black;
+
+	border-radius: 30px;
+
+	margin-left: 10px;
+
+	user-select: none;
+}
+
+.show-banner {
+	animation: hide-banner-animation 0.5s forwards ease-in, show-banner-animation 0.5s forwards ease-in 0.5s;
+}
+
+#more-button {
+	width: 90px;
+	height: 40px;
+
+	background-color: rgb(237, 214, 173);
+
+	margin: 20px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	font-weight: bold;
+	font-size: large;
+
+	border-radius: 30px;
+
+	user-select: none;
+
+	transition: transform 0.05s ease-in, background 0.08s ease-in;
+
+	cursor: pointer;
+}
+
+#more-button:hover {
+	transform: scale(1.1, 1.1);
+	background-color: rgba(224, 201, 163, 0.66);
+}
+
+#more-button:active {
+	transform: scale(0.9, 0.9);
+	background-color: rgba(192, 171, 137, 0.66);
+}
+
+@media screen AND (max-width: 1240px) {
+	#content-borders {
+		width: 100%;
+	}
+}
+
+@media screen AND (max-width: 1200px) {
+	#banner-list {
+		height: 3.5vw;
+
+		transform: translateY(-3.1vw);
+	}
+
+	#banner-list li {
+		height: 1.8vw;
+		width: 1.8vw;
+	}
+}
+
+@media screen AND (max-width: 830px) {
+	#banner-list {
+		height: 4vw;
+
+		transform: translateY(-3.6vw);
+	}
+
+	#banner-list li {
+		height: 2.2vw;
+		width: 2.2vw;
+	}
+}
+
+@media screen AND (max-width: 740px) {
+	#banner-list {
+		height: 4.5vw;
+
+		transform: translateY(-4vw);
+	}
+
+	#banner-list li {
+		height: 2.5vw;
+		width: 2.5vw;
+	}
+}
+
+@media screen AND (max-width: 660px) {
+	#banner-list {
+		height: 5vw;
+
+		transform: translateY(-4.4vw);
+	}
+
+	#banner-list li {
+		height: 2.8vw;
+		width: 2.8vw;
+	}
+}
+
+@media screen AND (max-width: 600px) {
+	#banner-list {
+		height: 5.5vw;
+
+		transform: translateY(-4.8vw);
+	}
+
+	#banner-list li {
+		height: 3vw;
+		width: 3vw;
+	}
+}
+
+@media screen AND (max-width: 540px) {
+	#banner-list {
+		height: 6vw;
+
+		transform: translateY(-5.1vw);
+	}
+
+	#banner-list li {
+		height: 3.2vw;
+		width: 3.2vw;
+	}
+}
+
+@media screen AND (max-width: 510px) {
+	#banner-list {
+		height: 7vw;
+
+		transform: translateY(-5.7vw);
+	}
+
+	#banner-list li {
+		height: 3.4vw;
+		width: 3.4vw;
+	}
+}
+
+@media screen AND (max-width: 460px) {
+	#banner-list {
+		height: 8vw;
+
+		transform: translateY(-6.3vw);
+	}
+
+	#banner-list li {
+		height: 3.6vw;
+		width: 3.6vw;
+	}
+}
+
+@media screen AND (max-width: 425px) {
+	#banner-list {
+		height: 9vw;
+
+		transform: translateY(-6.9vw);
+	}
+
+	#banner-list li {
+		height: 4vw;
+		width: 4vw;
+	}
+}
+
+@media screen AND (max-width: 410px) {
+	#banner-list {
+		height: 11vw;
+
+		transform: translateY(-8.2vw);
+	}
+
+	#banner-list li {
+		height: 5vw;
+		width: 5vw;
+	}
+}
+
+@media screen AND (max-width: 330px) {
+	#banner-list {
+		height: 13vw;
+
+		transform: translateY(-9.3vw);
+	}
+
+	#banner-list li {
+		height: 5.4vw;
+		width: 5.4vw;
+	}
+}

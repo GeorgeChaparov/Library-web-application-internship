@@ -1,0 +1,141 @@
+#content-borders {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+#wrapper {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+#info-content {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: 350px;
+}
+
+#info-content div {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	margin: 10px;
+}
+
+#main-content {
+	width: calc(100% - 350px);
+	height: 100%;
+	margin-left: 50px;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+#main-content form {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+#main-content form input {
+	width: calc(100% - 15px);
+	height: 40px;
+}
+
+#main-content form * {
+	margin: 5px;
+
+	border-radius: 5px;
+
+	border-width: 2px;
+
+	border-color: rgba(97, 97, 97, 0.441);
+	border-style: solid;
+}
+
+#message {
+	width: calc(100% - 15px);
+	resize: none;
+}
+
+#submit-button {
+	width: 100px;
+
+	height: 30px;
+
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: center;
+
+	align-self: flex-start;
+
+	user-select: none;
+
+	cursor: pointer;
+
+	transition: all 0.02s ease-in;
+
+	background-color: rgb(237, 214, 173);
+}
+
+#submit-button:hover {
+	transform: scale(1.1, 1.1);
+	background-color: rgb(255, 233, 195);
+}
+
+#submit-button:active {
+	transform: scale(0.9, 0.9);
+	background-color: rgb(205, 184, 147);
+}
+
+#addres span:first-child {
+	font-weight: bold;
+}
+
+#director span:first-child {
+	font-weight: bold;
+}
+
+#event-organizer span:first-child {
+	font-weight: bold;
+}
+
+@media screen AND (max-width: 740px) {
+	#wrapper {
+		flex-direction: column;
+	}
+
+	#submit-button {
+		align-self: center;
+	}
+
+	#main-content {
+		margin-left: 0;
+
+		width: 80%;
+	}
+
+	#info-content {
+		margin-bottom: 20px;
+	}
+
+	#main-content form {
+		margin-bottom: 20px;
+	}
+}

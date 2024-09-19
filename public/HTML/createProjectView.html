@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.css" />
+		<link rel="stylesheet" href="../styles/modules/main.css" type="text/css" />
+		<link rel="stylesheet" href="../styles/createProjectView.css" type="text/css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+		<script src="../scripts/modules/main.js" type="text/javascript"></script>
+		<script src="../scripts/createProjectView.js" type="text/javascript"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap" rel="stylesheet" />
+
+		<title>Create Project</title>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo-wrapper"><div class="logo"></div></div>
+			<div id="header-buttons-wrapper">
+				<div class="menu-button pressable-button admin-news-button montserrat-for-titles">Новини</div>
+				<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+				<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+				<div class="menu-button selected-button create-projects-button montserrat-for-titles">Създай проект</div>
+			</div>
+			<div id="menu"></div>
+			<div id="floating-menu">
+				<div class="menu-button pressable-button admin-news-button montserrat-for-titles">Новини</div>
+				<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+				<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+				<div class="menu-button selected-button create-projects-button montserrat-for-titles">Създай проект</div>
+			</div>
+		</div>
+		<div id="go-up-button"></div>
+		<div id="content">
+			<div id="big_image_backbround">
+				<div id="image"></div>
+			</div>
+
+			<div id="page-title" class="montserrat-for-titles">Нов проект</div>
+			<div id="content-borders">
+				<div id="images-content">
+					<label id="images-lable" for="images">Добави изображения</label>
+					<div id="image-holder" class="image-container"></div>
+					<div id="small-images-wrapper"></div>
+					<div>
+						Max image size:
+						<span id="image-size">0.00MB / 50MB</span>
+					</div>
+					<div id="files-wrapper">
+						<label id="files-lable" for="files">Добави файлове</label>
+						<div id="files-display"></div>
+						<div>
+							Max file size:
+							<span id="file-size">0.00MB / 150MB</span>
+						</div>
+					</div>
+				</div>
+				<var id="main-content">
+					<form id="form">
+						<label for="date">Дата</label>
+						<input type="date" id="date" name="date" />
+
+						<label for="title">Заглавие</label>
+						<textarea type="text" id="title" name="title" maxlength="110" rows="3"></textarea>
+
+						<label for="description">Описание</label>
+						<textarea type="text" id="description" name="description" rows="5" maxlength="130"></textarea>
+
+						<label for="projectContent">Съдържание</label>
+						<textarea type="text" id="project-content" name="projectContent" rows="30"></textarea>
+
+						<input type="file" id="images" name="image_path" accept="image/*" multiple required />
+						<input type="file" id="files" name="files" accept="application/pdf" multiple required />
+
+						<label for="keywords">Ключови думи</label>
+						<input type="text" id="keywords" name="keywords" placeholder="Забавно, Интересно, Вълнуващо" />
+
+						<div id="buttons">
+							<div id="add-button">Добави</div>
+							<div id="cancel-button">Откажи</div>
+						</div>
+					</form>
+				</var>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="logo" id="footer-logo"></div>
+			<div id="footer-navigation-and-copyright-wrapper">
+				<div id="footer-navigation-buttons">
+					<div class="menu-button pressable-button admin-news-button montserrat-for-titles">Новини</div>
+					<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+					<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+					<div class="menu-button selected-button create-projects-button montserrat-for-titles">Създай проект</div>
+				</div>
+				<div id="footer-copyright"></div>
+			</div>
+		</div>
+	</body>
+</html>

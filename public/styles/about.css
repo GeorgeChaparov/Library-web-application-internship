@@ -1,0 +1,12 @@
+#info {
+	margin: 15px;
+}
+
+#info p:first-child {
+	text-indent: 2em;
+}
+
+#info p {
+	text-align: justify;
+	font-size: larger;
+}

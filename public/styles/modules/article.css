@@ -1,0 +1,152 @@
+#articles {
+	width: 100%;
+	height: fit-content;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.article-wrapper {
+	height: 480px;
+	width: 360px;
+	background-color: transparent;
+
+	margin: 10px;
+
+	margin-top: 20px;
+}
+
+.article-window {
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	cursor: pointer;
+
+	border-radius: 35px;
+	border-width: 1px;
+
+	transition: all 0.05s ease-in;
+}
+
+.article-window:hover {
+	transform: scale(1.05, 1.05);
+
+	border-style: solid;
+}
+
+.article-window:hover .article-image {
+	border-style: solid;
+}
+
+.article-window:active {
+	transform: scale(1, 1);
+	border-style: solid;
+}
+
+.article-image {
+	height: 55%;
+	width: 100%;
+	background-color: transparent;
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	border-radius: 30px;
+	border-width: 1px;
+
+	transition: transform 0.1s ease-in;
+}
+
+.article-image:hover {
+	transform: scale(1.008, 1.008);
+}
+
+.article-id {
+	background-color: rgb(255, 255, 255);
+	border-radius: 30px;
+
+	width: 45%;
+	height: 25px;
+
+	transform: translate(70%, -12.5px);
+
+	font-size: large;
+	font-weight: bold;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	user-select: none;
+}
+
+.article-title-and-description-wrapper {
+	height: 45%;
+	width: 100%;
+
+	background-color: transparent;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.article-title {
+	max-height: 55%;
+	height: fit-content;
+	width: calc(100% - 20px);
+
+	font-weight: 600;
+	font-size: 18px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-start;
+	text-align: start;
+
+	padding: 10px;
+
+	transition: transform 0.1s ease-in;
+}
+
+.article-title:hover {
+	transform: scale(1.008, 1.008);
+}
+
+.article-description {
+	max-height: 45%;
+	height: fit-content;
+	width: calc(100% - 20px);
+
+	padding: 10px;
+
+	font-size: 16px;
+
+	text-align: start;
+
+	transition: transform 0.1s ease-in;
+}
+
+.article-description:hover {
+	transform: scale(1.008, 1.008);
+}
+.article-date {
+	padding: 15px;
+
+	transition: transform 0.05s ease-in;
+
+	align-self: flex-start;
+}
+
+.article-date:hover {
+	transform: scale(1.008, 1.008);
+}

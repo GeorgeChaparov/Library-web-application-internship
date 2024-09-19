@@ -1,0 +1,18 @@
+{
+	"name": "application",
+	"version": "0.0.1",
+	"description": "my first app",
+	"type": "module",
+	"dependencies": {
+		"ejs": "^3.1.10",
+		"express": "^4.19.2",
+		"express-handlebars": "^7.1.2",
+		"express-session": "^1.18.0",
+		"formidable": "^3.5.1",
+		"hbs": "^4.2.0",
+		"multer": "^1.4.5-lts.1",
+		"nodemailer": "^6.9.13",
+		"sqlite": "^5.1.1",
+		"sqlite3": "^5.1.7"
+	}
+}

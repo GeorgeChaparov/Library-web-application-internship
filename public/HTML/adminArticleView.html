@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../styles/modules/main.css" type="text/css" />
+		<link rel="stylesheet" href="../styles/modules/article.css" type="text/css" />
+		<link rel="stylesheet" href="../styles/modules/searchbar.css" type="text/css" />
+		<link rel="stylesheet" href="../styles/adminArticleView.css" type="text/css" />
+		<script src="../scripts/adminArticleView.js" type="text/javascript"></script>
+		<script src="../scripts/modules/main.js" type="text/javascript"></script>
+		<script src="../scripts/modules/loadArticles.js" type="text/javascript"></script>
+		<script src="../scripts/modules/articleSearchBar.js" type="text/javascript"></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Display:wght@400..800&display=swap" rel="stylesheet" />
+
+		<title>Articles</title>
+	</head>
+	<body>
+		<div id="header">
+			<div id="logo-wrapper"><div class="logo"></div></div>
+			<div id="header-buttons-wrapper">
+				<div class="menu-button selected-button admin-news-button montserrat-for-titles">Новини</div>
+				<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+				<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+				<div class="menu-button pressable-button create-projects-button montserrat-for-titles">Създай проект</div>
+			</div>
+			<div id="menu"></div>
+			<div id="floating-menu">
+				<div class="menu-button selected-button admin-news-button montserrat-for-titles">Новини</div>
+				<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+				<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+				<div class="menu-button pressable-button create-projects-button montserrat-for-titles">Създай проект</div>
+			</div>
+		</div>
+		<div id="go-up-button"></div>
+		<div id="content">
+			<h1 class="montserrat-for-titles">НОВИНИ</h1>
+
+			<div id="search-bar-and-options-wrapper">
+				<input type="text" id="search-bar" placeholder="Търсете по ID използвайки само цифри." />
+				<span id="tooltip">
+					Търсете по дата използвайки следния модел - ''дд-мм-гггг".
+					<br />
+					Търсете по - ден: "дд-"; месец: "-мм-"; година: "-гггг".
+					<br />
+					Може да ги комбинирате. Примери: "дд--гггг", "дд--мм-", "-мм--гггг".
+				</span>
+				<div id="search-order-options">
+					<div class="optionbutton" id="search-order-by-asc-button"></div>
+					<div class="optionbutton" id="search-order-by-desc-button"></div>
+				</div>
+			</div>
+
+			<div id="content-borders">
+				<div id="articles"></div>
+			</div>
+		</div>
+		<div id="footer">
+			<div class="logo" id="footer-logo"></div>
+			<div id="footer-navigation-and-copyright-wrapper">
+				<div id="footer-navigation-buttons">
+					<div class="menu-button selected-button admin-news-button montserrat-for-titles">Новини</div>
+					<div class="menu-button pressable-button admin-projects-button montserrat-for-titles">Проекти</div>
+					<div class="menu-button pressable-button create-news-button montserrat-for-titles">Създай новина</div>
+					<div class="menu-button pressable-button create-projects-button montserrat-for-titles">Създай проект</div>
+				</div>
+				<div id="footer-copyright"></div>
+			</div>
+		</div>
+	</body>
+</html>

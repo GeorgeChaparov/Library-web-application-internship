@@ -1,0 +1,560 @@
+@keyframes show-menu {
+	from {
+		height: 0px;
+	}
+
+	to {
+		height: 230px;
+	}
+}
+
+@keyframes hide-menu {
+	from {
+		height: 230px;
+	}
+
+	to {
+		height: 0px;
+	}
+}
+
+@keyframes show-menu-admin {
+	from {
+		height: 0px;
+	}
+
+	to {
+		height: 100px;
+	}
+}
+
+@keyframes hide-menu-admin {
+	from {
+		height: 100px;
+	}
+
+	to {
+		height: 0px;
+	}
+}
+
+@keyframes show-menu-button {
+	0% {
+		font-size: 0px;
+	}
+
+	100% {
+		font-size: 20px;
+	}
+}
+
+@keyframes hide-menu-button {
+	0% {
+		font-size: 20px;
+	}
+
+	100% {
+		font-size: 0px;
+	}
+}
+
+.wix-madefor-display-for-long-text {
+	font-family: "Wix Madefor Display", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+.montserrat-for-titles {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100vh;
+	height: fit-content;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+
+	min-height: calc(100vh - 8px - 20px);
+
+	padding-top: 8px;
+
+	padding-bottom: 20px;
+	background-color: white;
+}
+
+h1 {
+	font-size: calc(2.5vw + 2.5vh);
+	text-align: center;
+	font-weight: 600;
+}
+
+#header {
+	width: calc(100% - 30px);
+	height: 60px;
+	background-color: rgb(237, 214, 173);
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	margin-left: 15px;
+	margin-right: 15px;
+
+	border-radius: 30px;
+}
+
+#logo-wrapper {
+	width: 15vw;
+	height: 100%;
+
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.logo {
+	width: 10vw;
+	height: 7.5vw;
+
+	background-color: white;
+	background-image: url("../../files/Logo/logo.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	position: absolute;
+
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+
+	cursor: pointer;
+
+	transition: transform 0.05s ease-in;
+
+	z-index: 10;
+}
+
+.logo:hover {
+	transform: scale(1.1, 1.1);
+}
+
+.logo:active {
+	transform: scale(1, 1);
+}
+
+#header-buttons-wrapper {
+	width: 70%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#menu {
+	position: absolute;
+	visibility: hidden;
+
+	width: 40px;
+	height: 40px;
+
+	background-image: url("../../files/Pictograms/menu.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	border-radius: 30px;
+
+	transition: transform 0.05s ease-in, background 0.08s ease-in;
+}
+
+#floating-menu {
+	width: 200px;
+	height: 0px;
+
+	background-color: rgb(237, 214, 173);
+	position: absolute;
+
+	right: 35px;
+	top: 18px;
+
+	z-index: 12;
+
+	margin: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+
+#floating-menu div {
+	margin: 0;
+	margin-bottom: 20px;
+
+	font-size: 0;
+}
+
+#content {
+	width: 100%;
+	height: fit-content;
+	min-height: calc(100vh - 130px - 60px - 28px);
+	background-color: white;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#content-borders {
+	width: 1225px;
+
+	padding-bottom: 30px;
+}
+
+#footer {
+	width: calc(100% - 30px);
+	height: 130px;
+	background-color: rgb(167, 150, 118);
+
+	margin-left: 15px;
+	margin-right: 15px;
+
+	border-radius: 30px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+#footer-logo {
+	margin-left: 30px;
+	background-color: transparent;
+	position: relative;
+}
+
+#footer-logo:hover {
+	transform: scale(1.1, 1.1);
+}
+
+#footer-logo:active {
+	transform: scale(1, 1);
+}
+
+#footer-navigation-and-copyright-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+	height: calc(100% - 20px);
+
+	padding: 10px;
+}
+
+#footer-navigation-buttons {
+	width: 100%;
+	height: 70%;
+
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: space-evenly;
+}
+
+#footer-navigation-buttons div {
+	margin: 5px 5px 10px 5px;
+}
+
+#footer-copyright {
+	width: 100%;
+	height: 30%;
+
+	text-align: center;
+}
+
+#footer-contacts {
+	margin-right: 80px;
+
+	width: 200px;
+	height: 120px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	font-size: x-large;
+	font-weight: 200;
+
+	padding-top: 10px;
+}
+
+#footer-pictograms {
+	width: 100%;
+	height: 50%;
+
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+#footer-pictograms div {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#email-pictogram {
+	background-image: url("../../files/Pictograms/mail.png");
+}
+
+#facebook-pictogram {
+	background-image: url("../../files/Pictograms/facebook.png");
+}
+
+#instagram-pictogram {
+	background-image: url("../../files/Pictograms/insta.png");
+}
+
+#footer-contacts {
+	font-weight: 400;
+}
+
+.footer-contacts-button {
+	width: 30px;
+	height: 30px;
+
+	transition: all 0.05s ease-in;
+
+	border-radius: 30px;
+
+	cursor: pointer;
+}
+
+.footer-contacts-button:hover {
+	transform: scale(1.1, 1.1);
+}
+
+.footer-contacts-button:active {
+	transform: scale(1, 1);
+}
+
+.menu-button {
+	min-width: 90px;
+	height: 40px;
+
+	background-color: transparent;
+
+	padding: 0 8px 0 8px;
+	margin: 20px;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	font-weight: bold;
+	font-size: large;
+
+	border-radius: 30px;
+
+	user-select: none;
+}
+
+.selected-button {
+	transition: transform 0.05s ease-in, background 0.08s ease-in;
+}
+
+.pressable-button {
+	cursor: pointer;
+
+	transition: transform 0.05s ease-in, background 0.08s ease-in;
+}
+
+.pressable-button:hover {
+	transform: scale(1.1, 1.1);
+	background-color: rgba(224, 201, 163, 0.66);
+}
+
+.pressable-button:active {
+	transform: scale(0.9, 0.9);
+	background-color: rgba(192, 171, 137, 0.66);
+}
+
+#go-up-button {
+	border-radius: 30px;
+
+	background-image: url(../../files/Pictograms/go-up.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	width: 50px;
+	height: 50px;
+
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+
+	background-color: rgb(237, 214, 173);
+
+	cursor: pointer;
+
+	z-index: 20;
+}
+
+#go-up-button:hover {
+	transform: scale(1.1, 1.1);
+	background-color: rgb(224, 201, 163);
+}
+
+#go-up-button:active {
+	transform: scale(0.9, 0.9);
+	background-color: rgb(192, 171, 137);
+}
+@media screen AND (max-width: 1480px) {
+	#footer-logo {
+		width: 160px;
+		height: 120px;
+
+		transform: translateX(0px);
+	}
+
+	#footer-logo:hover {
+		transform: scale(1.1, 1.1) translateX(0px);
+	}
+
+	#footer-logo:active {
+		transform: scale(1, 1) translateX(0px);
+	}
+}
+
+@media screen AND (max-width: 1240px) {
+	#content-borders {
+		width: 100%;
+	}
+}
+
+@media screen AND (max-width: 1050px) {
+	.logo {
+		justify-self: flex-start;
+	}
+
+	#header-buttons-wrapper {
+		position: absolute;
+
+		visibility: hidden;
+
+		width: 0;
+		height: 0;
+	}
+	#menu {
+		justify-self: flex-end;
+		margin-right: 20px;
+
+		position: relative;
+		visibility: visible;
+	}
+
+	#header {
+		justify-content: space-between;
+	}
+}
+
+@media screen AND (max-width: 1000px) {
+	.logo {
+		width: 100px;
+		height: 75px;
+	}
+
+	#footer-navigation-buttons div {
+		min-width: 6.9vw;
+		width: 6.9vw;
+		height: 30px;
+
+		font-size: 1.6vw;
+	}
+}
+
+@media screen AND (max-width: 800px) {
+	#footer-navigation-buttons div {
+		min-width: 50px;
+		width: 50px;
+		height: 20px;
+
+		font-size: 12px;
+	}
+}
+
+@media screen AND (max-width: 860px) {
+	#footer-logo {
+		width: 210px;
+		height: 160px;
+
+		transform: translateX(0px);
+
+		background-size: contain;
+	}
+
+	.logo {
+		transform: translateX(50px);
+	}
+}
+
+@media screen AND (max-width: 660px) {
+	#footer-logo {
+		width: 260px;
+		height: 120px;
+
+		transform: translateX(0px);
+
+		background-size: contain;
+	}
+}
+
+@media screen AND (max-width: 628px) {
+	#footer-navigation-buttons div {
+		margin-bottom: 0px;
+	}
+}
+
+@media screen AND (max-width: 510px) {
+	#footer-logo {
+		width: 1000px;
+	}
+
+	.logo {
+		transform: translateX(60px);
+	}
+
+	#footer-navigation-buttons div {
+		visibility: hidden;
+		position: absolute;
+	}
+}
+
+@media screen AND (max-width: 380px) {
+	.logo {
+		transform: translateX(80px);
+	}
+}
+
+@media screen AND (max-width: 300px) {
+	#footer-logo {
+		width: 360px;
+	}
+}
