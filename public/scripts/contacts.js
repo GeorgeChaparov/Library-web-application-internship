@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const senderEmail = document.getElementById("senderEmail");
 	const senderTitle = document.getElementById("title");
 	const senderMessage = document.getElementById("message");
-	var isFirstSend = true;
+	let isFirstSend = true;
 
 	submitButton.addEventListener("click", async function (event) {
 		if (!senderName.value || !senderEmail.value || !senderTitle.value || !senderMessage.value) {

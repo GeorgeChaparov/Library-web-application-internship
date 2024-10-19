@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const imagesContent = document.getElementById("images-content");
 
 	const maxImagesSize = 50 * 1024 * 1024; // limit: 50MB (5MB each, up to 10).
-	var totalImagesSize = 0;
+	let totalImagesSize = 0;
 
-	var imagesPath = [];
-	var imagesSize = 0;
+	const imagesPath = [];
+	let imagesSize = 0;
 
 	if (window.innerWidth < 1000) {
 		content.appendChild(buttons);
@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		const article = await response.json();
 
-		var count = 0;
-		var lastEndIndex = 0;
+		let count = 0;
+		let lastEndIndex = 0;
 		for (let i = 0; i < article.image_path.length; i++) {
 			const char = article.image_path.charAt(i);
 
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.error(err);
 		}
 
-		var articleMainImage = document.createElement("div");
+		const articleMainImage = document.createElement("div");
 		articleMainImage.id = "0";
 		articleMainImage.classList.add("draggable-image");
 		articleMainImage.style.backgroundImage = "url('" + imagesPath[0] + "')";
@@ -128,23 +128,23 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 			const image = imagesPath[i];
 
-			var smallImage = document.createElement("div");
+			const smallImage = document.createElement("div");
 			smallImage.classList.add("small-preview");
 			smallImage.classList.add("container");
 
-			var draggableImage = document.createElement("div");
+			const draggableImage = document.createElement("div");
 			draggableImage.id = i;
 			draggableImage.classList.add("draggable-image");
 			draggableImage.style.backgroundImage = "url('" + image + "')";
 			draggableImage.addEventListener("click", openImage);
-
+			
 			smallImage.appendChild(draggableImage);
 			smallImageWrapper.appendChild(smallImage);
 		}
 
 		imagesSize = totalImagesSize;
 
-		var totalImageSizeRounded = (totalImagesSize / (1024 * 1024)).toFixed(2);
+		const totalImageSizeRounded = (totalImagesSize / (1024 * 1024)).toFixed(2);
 
 		imageSizeLable.innerHTML = `${totalImageSizeRounded}MB / 50MB`;
 
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		articleDescription.value = article.description;
 		articleKeywords.value = article.keywords;
 
-		var drake = dragula(Array.from(document.getElementsByClassName("container")), {
+		const drake = dragula(Array.from(document.getElementsByClassName("container")), {
 			moves: function (el, container, handle) {
 				return handle.classList.contains("draggable-image");
 			},
@@ -207,8 +207,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	articleImages.addEventListener("change", function (event) {
-		var arrToUse; // Array from which the images will be taken.
-		var usingOriginalImages = false; // Flag to check if original images are being used.
+		let arrToUse; // Array from which the images will be taken.
+		let usingOriginalImages = false; // Flag to check if original images are being used.
 
 		totalImagesSize = 0;
 
@@ -233,7 +233,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			}
 		}
 
-		var totalImageSizeRounded = (totalImagesSize / (1024 * 1024)).toFixed(2);
+		const totalImageSizeRounded = (totalImagesSize / (1024 * 1024)).toFixed(2);
 
 		imageSizeLable.innerHTML = `${totalImageSizeRounded}MB / 50MB`;
 
@@ -269,7 +269,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const imageUrl = usingOriginalImages ? image : URL.createObjectURL(image);
 
 			if (i == 0) {
-				var articleMainImage = document.createElement("div");
+				const articleMainImage = document.createElement("div");
 				articleMainImage.id = "0";
 				articleMainImage.classList.add("draggable-image");
 				articleMainImage.style.backgroundImage = `url('${imageUrl}')`;
@@ -289,11 +289,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 				continue;
 			}
 
-			var smallImage = document.createElement("div");
+			const smallImage = document.createElement("div");
 			smallImage.classList.add("small-preview");
 			smallImage.classList.add("container");
 
-			var draggableImage = document.createElement("div");
+			const draggableImage = document.createElement("div");
 			draggableImage.id = i;
 			draggableImage.classList.add("draggable-image");
 			draggableImage.style.backgroundImage = `url('${imageUrl}')`;
@@ -448,7 +448,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			orderedList.push(smallImageWrapper.children[i].children[0].id);
 		}
 
-		var paths = "";
+		let paths = "";
 
 		for (let i = 0; i < imagesPath.length; i++) {
 			paths += imagesPath[orderedList[i]] + "|||";

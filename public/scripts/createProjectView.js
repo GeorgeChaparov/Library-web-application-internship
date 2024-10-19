@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 	const maxImagesSize = 50 * 1024 * 1024; // limit: 50MB (5MB each, up to 10).
 	const maxFilessSize = 150 * 1024 * 1024; // limit: 150MB (15MB each, up to 10).
-	var totalImagesSize = 0;
-	var totalFilesSize = 0;
+	let totalImagesSize = 0;
+	let totalFilesSize = 0;
 
-	var projectId;
+	let projectId;
 
 	if (window.innerWidth < 1000) {
 		content.appendChild(buttons);
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 			fileDisplay.removeChild(element);
 		}
 
-		var drake;
 		if (event.target.files[0]) {
 			for (let i = 0; i < event.target.files.length; i++) {
 				const file = event.target.files[i];
@@ -117,7 +116,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				fileDisplay.appendChild(fileDiv);
 			}
 
-			drake = dragula([document.getElementById("files-display")], {
+			const drake = dragula([document.getElementById("files-display")], {
 				moves: function (el, container, handle) {
 					return handle.classList.contains("draggable-file");
 				},

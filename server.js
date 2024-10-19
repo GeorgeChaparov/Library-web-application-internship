@@ -67,8 +67,8 @@ app.use(
 	})
 );
 
-var imageUploadDir = "";
-var fileUploadDir = "";
+let imageUploadDir = "";
+let fileUploadDir = "";
 
 // Function to decode UTF-8 encoded filenames
 function decodeFilename(filename) {

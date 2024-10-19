@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async function () {
-	var currentImageIndex = 1;
+	let currentImageIndex = 1;
 
-	var isMouseOnBanner = false;
+	let isMouseOnBanner = false;
 
 	const images = ["793739842.jpg", "536027014.jpg", "600457676.jpg"];
 	const bannerImage = document.getElementById("banner-image");
@@ -23,9 +23,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 			articleWindowDiv.classList.add("article-window");
 			articleWindowDiv.id = article.id;
 
-			var image_path;
+			let image_path;
 
-			var count = 0;
+			let count = 0;
 			for (let i = 0; i < article.image_path.length; i++) {
 				const char = article.image_path.charAt(i);
 
@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	} catch (error) {
 		console.error("Error fetching articles:", error);
 	}
+
 	const changeBannerImage = function () {
 		updateBannerAndList();
 	};
@@ -104,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		bannerIntervalId = setInterval(changeBannerImage, 3000);
 	};
 
-	var bannerIntervalId = setInterval(changeBannerImage, 3000);
+	let bannerIntervalId = setInterval(changeBannerImage, 3000);
 
 	for (let i = 0; i < images.length; i++) {
 		const image = images[i];

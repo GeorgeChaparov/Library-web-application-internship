@@ -1,6 +1,6 @@
 const monthNames = ["януари", "февруари", "март", "април", "май", "юни", "юли", "август", "септември", "октомври", "ноември", "декември"];
 
-var projectsArray = [];
+const projectsArray = [];
 
 document.addEventListener("DOMContentLoaded", async function () {
 	const projectsListDiv = document.getElementById("projects");
@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const projectWindowDiv = document.createElement("div");
 			projectWindowDiv.classList.add("project-window");
 
-			var image_path;
+			let image_path;
 
-			var count = 0;
+			let count = 0;
 			for (let i = 0; i < project.image_path.length; i++) {
 				const char = project.image_path.charAt(i);
 

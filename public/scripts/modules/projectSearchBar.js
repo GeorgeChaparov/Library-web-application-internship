@@ -38,15 +38,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 	const tooltip = document.getElementById("tooltip");
 
-	var tempArrayMatch = [];
+	const tempArrayMatch = [];
 
-	var isSearchingByAscActive = false;
-	var hasClicked = false;
+	let isSearchingByAscActive = false;
+	let hasClicked = false;
 
-	var typeOfInput = TypeOfInput.All;
-	var searchOption = SearchOption.None;
-	var shouldHighlight = true;
-	var dateType = DateType.None;
+	let typeOfInput = TypeOfInput.All;
+	let searchOption = SearchOption.None;
+	let shouldHighlight = true;
+	let dateType = DateType.None;
 
 	searchByAscButton.addEventListener("click", function () {
 		hasClicked = true;
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	searchBar.addEventListener("input", function () {
 		tempArrayMatch.splice(0, tempArrayMatch.length);
 
-		var trimedSearchValue = searchBar.value.trim();
+		const trimedSearchValue = searchBar.value.trim();
 
 		typeOfInput = TypeOfInput.All;
 		searchOption = SearchOption.None;
@@ -215,7 +215,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			for (let i = 0; i < projectsArray.length; i++) {
 				const project = projectsArray[i];
 
-				var projectTitle = project.children[0].children[1].children[0];
+				const projectTitle = project.children[0].children[1].children[0];
 				projectTitle.innerHTML = projectTitle.innerHTML.replaceAll("<span>", "");
 				projectTitle.innerHTML = projectTitle.innerHTML.replaceAll('<span class="highlight-sub-string">', "");
 				projectTitle.innerHTML = projectTitle.innerHTML.replaceAll("</span>", "");
@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				projectsListDiv.appendChild(project);
 			}
 		} else {
-			var lable = document.createElement("label");
+			const lable = document.createElement("label");
 
 			lable.innerHTML = "No project found containing " + searchBar.value.trim() + ".";
 			projectsListDiv.appendChild(lable);
@@ -235,12 +235,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 		string = string.replaceAll('<span class="highlight-sub-string">', "");
 		string = string.replaceAll("</span>", "");
 
-		var subStringLength = subString.length;
+		const subStringLength = subString.length;
 
-		var newString = "<span>";
+		let newString = "<span>";
 
 		while (string != "") {
-			var currentSubStringStartPos = string.indexOf(subString);
+			const currentSubStringStartPos = string.indexOf(subString);
 
 			if (currentSubStringStartPos == -1) {
 				newString += string + "</span>";
@@ -249,11 +249,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 			newString += string.slice(0, currentSubStringStartPos);
 
-			var span = "<span class='highlight-sub-string'>" + subString + "</span>";
+			const span = "<span class='highlight-sub-string'>" + subString + "</span>";
 
 			newString += span;
 
-			var endPosOfLastSubString = currentSubStringStartPos + subStringLength;
+			const endPosOfLastSubString = currentSubStringStartPos + subStringLength;
 
 			string = string.slice(endPosOfLastSubString);
 		}
@@ -267,13 +267,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 	 * @param {TypeOfInput} typeOfInput - The search option to apply.
 	 */
 	function Search(searchOption, typeOfInput, dateType, shouldHighlight = true) {
-		var stringToTest = searchBar.value.trim();
+		const stringToTest = searchBar.value.trim();
 
 		projectsListDiv.innerHTML = "";
 
 		for (let i = 0; i < projectsArray.length; i++) {
 			const project = projectsArray[i];
-			var stringToSearchIn;
+			let stringToSearchIn;
 
 			switch (typeOfInput) {
 				case TypeOfInput.All:
@@ -383,7 +383,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 			for (let i = 0; i < tempArrayMatch.length; i++) {
 				const project = tempArrayMatch[i];
-				var elementToHighlight;
+				let elementToHighlight;
 
 				switch (typeOfInput) {
 					case TypeOfInput.All:
@@ -402,7 +402,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				projectsListDiv.appendChild(project);
 			}
 		} else {
-			var lable = document.createElement("label");
+			const lable = document.createElement("label");
 
 			lable.innerHTML = "No project found containing " + stringToTest + ".";
 			projectsListDiv.appendChild(lable);

@@ -1,7 +1,7 @@
-var rect;
-var elementWidth;
-var elementHeight;
-var bigImageBackground;
+let rect;
+let elementWidth;
+let elementHeight;
+let bigImageBackground;
 
 const openImage = function (event) {
 	rect = event.target.getBoundingClientRect();
@@ -58,14 +58,14 @@ const openImage = function (event) {
 	styleElement.id = "show-animation";
 	document.head.appendChild(styleElement);
 
-	var backgroundImage;
+	let backgroundImage;
 
 	if (event.target.style.backgroundImage) {
 		backgroundImage = event.target.style.backgroundImage;
 	} else {
 		backgroundImage = "url('" + event.target.src + "')";
 	}
-	var imageStyle = bigImageBackground.children[0].style;
+	const imageStyle = bigImageBackground.children[0].style;
 
 	imageStyle.backgroundImage = backgroundImage;
 
@@ -77,7 +77,7 @@ const openImage = function (event) {
 const closeImage = function () {
 	removeKeyframeStyle("hide-animation");
 
-	var bigImageRect = bigImageBackground.getBoundingClientRect();
+	const bigImageRect = bigImageBackground.getBoundingClientRect();
 
 	const hideKeyframes =
 		`
@@ -189,11 +189,11 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const facebookButton = document.getElementById("facebook-pictogram");
 	const instagramButton = document.getElementById("instagram-pictogram");
 
-	var headerPressableButtons = [];
-	var menuPressableButtons = [];
-	var footerPressableButtons = [];
+	const headerPressableButtons = [];
+	const menuPressableButtons = [];
+	const footerPressableButtons = [];
 
-	var buttonCount = 0;
+	let buttonCount = 0;
 
 	if (!createNewsButtons[0]) {
 		buttonCount = 4;
@@ -515,7 +515,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			menuButton.style.transform = "scale(1, 1)";
 		});
 
-		var duration = 80;
+		let duration = 80;
 		menuButton.addEventListener("click", async function (event) {
 			if (event.target != this) {
 				return;

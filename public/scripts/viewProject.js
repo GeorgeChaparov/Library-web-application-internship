@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const smallImageWrapper = document.getElementById("small-images-wrapper");
 	const smallImageContent = document.getElementById("small-images-content");
 
-	var imagesPath = [];
-	var filesPath = [];
+	const imagesPath = [];
+	const filesPath = [];
 
 	if (window.innerWidth < 1000) {
 		for (let i = contentBorder.children.length - 1; i >= 0; i--) {
@@ -49,8 +49,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		const images = project.image_path;
 
-		var count = 0;
-		var lastEndIndex = 0;
+		let count = 0;
+		let lastEndIndex = 0;
 		for (let i = 0; i < images.length; i++) {
 			const char = images.charAt(i);
 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const file = filesPath[i];
 			const fileName = file.slice(file.lastIndexOf("/") + 1);
 
-			var fileDiv = document.createElement("div");
+			const fileDiv = document.createElement("div");
 			fileDiv.id = i;
 			fileDiv.classList.add("file");
 
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			for (let i = 1; i < imagesPath.length; i++) {
 				const path = imagesPath[i];
 
-				var smallImage = document.createElement("div");
+				const smallImage = document.createElement("div");
 				smallImage.classList.add("small-preview");
 				smallImage.style.backgroundImage = "url('" + path + "')";
 

@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 	const smallImageWrapper = document.getElementById("small-images-wrapper");
 	const smallImageContent = document.getElementById("small-images-content");
 
-	var imagesPath = [];
+	const imagesPath = [];
 
 	if (window.innerWidth < 1000) {
 		for (let i = contentBorder.children.length - 1; i >= 0; i--) {
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		const article = await response.json();
 
-		var count = 0;
-		var lastEndIndex = 0;
+		let count = 0;
+		let lastEndIndex = 0;
 		for (let i = 0; i < article.image_path.length; i++) {
 			const char = article.image_path.charAt(i);
 
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			for (let i = 1; i < imagesPath.length; i++) {
 				const path = imagesPath[i];
 
-				var smallImage = document.createElement("div");
+				const smallImage = document.createElement("div");
 				smallImage.classList.add("small-preview");
 				smallImage.style.backgroundImage = "url('" + path + "')";
 
