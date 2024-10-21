@@ -83,27 +83,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 				if (isAdminView) {
 					// Redirect the user to the edit project form.
-					try {
-						const response = await fetch("/loadEditProjectView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching projects:", error);
-					}
+					window.location.href = "/editProjectView";
 				} else {
-					try {
-						const response = await fetch("/loadViewProject", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching projects:", error);
-					}
+					window.location.href = "/viewProject";
 				}
 			});
 

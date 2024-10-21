@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		await createFileDir(); // Create the files dir.
 		await saveProjectFile(); // Save the files.
 
-		await redirectBack();
+		window.location.href = "/adminProjectView";
 	});
 
 	cancelButton.addEventListener("click", async function (event) {
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			return;
 		}
 
-		await redirectBack();
+		window.location.href = "/adminProjectView";
 	});
 
 	async function createImageDir() {
@@ -447,7 +447,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		try {
 			const response = await fetch(`/createProject`, {
-				method: "PUT",
+				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -463,19 +463,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.log(result);
 		} catch (error) {
 			console.error("Error:", error.message);
-		}
-	}
-
-	async function redirectBack() {
-		try {
-			const response = await fetch("/loadadminProjectView", { method: "post" });
-			if (!response.ok) throw new Error("Network response was not ok");
-
-			const result = await response.json();
-
-			window.location.href = result.redirectUrl;
-		} catch (error) {
-			console.error("Error fetching projects:", error);
 		}
 	}
 

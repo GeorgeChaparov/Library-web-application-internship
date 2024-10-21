@@ -107,104 +107,52 @@ app.get("/admin", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "adminLogin.html"));
 });
 
-app.post("/loadEditArticleView", isAdmin, (req, res) => {
-	res.json({ redirectUrl: "/editArticle" });
-});
-
-app.get("/editArticle", isAdmin, (req, res) => {
+app.get("/editArticleView", isAdmin, (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "editArticleView.html"));
 });
 
-app.post("/loadAdminArticleView", isAdmin, (req, res) => {
-	res.json({ redirectUrl: "/adminArticle" });
-});
-
-app.get("/adminArticle", isAdmin, (req, res) => {
+app.get("/adminArticleView", isAdmin, (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "adminArticleView.html"));
-});
-
-app.post("/loadCreateArticleView", isAdmin, (req, res) => {
-	res.json({ redirectUrl: "/createArticle" });
 });
 
 app.get("/createArticle", isAdmin, (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "createArticleView.html"));
 });
 
-app.post("/loadAdminProjectView", isAdmin, async (req, res) => {
-	res.json({ redirectUrl: "/adminProject" });
-});
-
-app.get("/adminProject", isAdmin, async (req, res) => {
+app.get("/adminProjectView", isAdmin, async (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "adminProjectView.html"));
-});
-
-app.post("/loadCreateProjectView", isAdmin, async (req, res) => {
-	res.json({ redirectUrl: "/createProject" });
 });
 
 app.get("/createProject", isAdmin, async (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "createProjectView.html"));
 });
 
-app.post("/loadEditProjectView", isAdmin, async (req, res) => {
-	res.json({ redirectUrl: "/editProject" });
-});
-
-app.get("/editProject", isAdmin, async (req, res) => {
+app.get("/editProjectView", isAdmin, async (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "editProjectView.html"));
 });
 
-app.post("/loadViewArticle", (req, res) => {
-	res.json({ redirectUrl: "/article" });
-});
-
-app.get("/article", (req, res) => {
+app.get("/viewArticle", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "views", "viewArticle.html"));
 });
 
-app.post("/loadViewProject", (req, res) => {
-	res.json({ redirectUrl: "/project" });
-});
-
-app.get("/project", (req, res) => {
+app.get("/viewProject", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "views", "viewProject.html"));
-});
-
-app.post("/loadArticlesView", (req, res) => {
-	res.json({ redirectUrl: "/articles" });
 });
 
 app.get("/articles", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "articlesView.html"));
 });
 
-app.post("/loadProjectsView", (req, res) => {
-	res.json({ redirectUrl: "/projects" });
-});
-
 app.get("/projects", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "projectsView.html"));
-});
-
-app.post("/loadHome", (req, res) => {
-	res.json({ redirectUrl: "/home" });
 });
 
 app.get("/home", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "index.html"));
 });
 
-app.post("/loadAbout", (req, res) => {
-	res.json({ redirectUrl: "/about" });
-});
-
 app.get("/about", (req, res) => {
 	res.sendFile(path.join(__htmlDriName, "about.html"));
-});
-
-app.post("/loadContacts", (req, res) => {
-	res.json({ redirectUrl: "/contacts" });
 });
 
 app.get("/contacts", (req, res) => {
@@ -212,11 +160,11 @@ app.get("/contacts", (req, res) => {
 });
 
 // Returns the size of given image.
-app.post("/getImageSize", async function (req, res) {
-	const { image_path } = req.body;
+app.get("/getImageSize", async function (req, res) {
+	const imagesPath = req.query.imagesPath;
 
 	try {
-		const stats = await fs.promises.stat(path.join(__dirname, "public", image_path.slice(1)));
+		const stats = await fs.promises.stat(path.join(__dirname, "public", imagesPath.slice(1)));
 		const imageSize = stats.size;
 		res.json(imageSize);
 	} catch (error) {
@@ -226,10 +174,10 @@ app.post("/getImageSize", async function (req, res) {
 });
 
 // Gets a specific article from the database.
-app.post("/getSpecificArticle", async function (req, res) {
+app.get("/getSpecificArticle", async function (req, res) {
 	try {
-		const { id } = req.body;
-		const article = await db.get("SELECT * FROM articles WHERE id = ?", [id]);
+		const id = req.query.id;
+		const article = await db.get("SELECT * FROM articles WHERE id = ?", [id]);	
 
 		if (article) {
 			res.json(article);
@@ -243,9 +191,9 @@ app.post("/getSpecificArticle", async function (req, res) {
 });
 
 // Gets a specific project from the database.
-app.post("/getSpecificProject", async function (req, res) {
+app.get("/getSpecificProject", async function (req, res) {
 	try {
-		const { id } = req.body;
+		const id = req.query.id;
 		const project = await db.get("SELECT * FROM projects WHERE id = ?", [id]);
 
 		if (project) {
@@ -616,7 +564,7 @@ app.put("/updateProjectFileNoChange", isAdmin, async (req, res) => {
 });
 
 // Inserts the new article into the database.
-app.put("/createArticle", isAdmin, async (req, res) => {
+app.post("/createArticle", isAdmin, async (req, res) => {
 	const { title, content, description, date, keywords } = req.body;
 
 	if (!title) {
@@ -645,7 +593,7 @@ app.put("/createArticle", isAdmin, async (req, res) => {
 });
 
 // Inserts the new project into the database.
-app.put("/createProject", isAdmin, async (req, res) => {
+app.post("/createProject", isAdmin, async (req, res) => {
 	const { title, content, description, date, keywords } = req.body;
 
 	if (!title) {
@@ -674,7 +622,7 @@ app.put("/createProject", isAdmin, async (req, res) => {
 });
 
 // Updates all data for a specific article except the image path.
-app.put("/deleteArticle", isAdmin, async (req, res) => {
+app.delete("/deleteArticle", isAdmin, async (req, res) => {
 	const { id } = req.body;
 
 	try {
@@ -699,7 +647,7 @@ app.put("/deleteArticle", isAdmin, async (req, res) => {
 });
 
 // Updates all data for a specific article except the image path.
-app.put("/deleteProject", isAdmin, async (req, res) => {
+app.delete("/deleteProject", isAdmin, async (req, res) => {
 	const { id } = req.body;
 
 	try {

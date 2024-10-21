@@ -33,15 +33,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	try {
-		const projectId = { id: sessionStorage.getItem("id") };
+		const projectId = sessionStorage.getItem("id");
 
-		const response = await fetch("/getSpecificProject", {
-			method: "post",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(projectId),
-		});
+		const response = await fetch(`/getSpecificProject?id=${projectId}`);
 
 		if (!response.ok) throw new Error("Network response was not ok");
 

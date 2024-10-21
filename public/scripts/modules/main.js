@@ -277,16 +277,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const logo = logos[i];
 
 			logo.addEventListener("click", async function (event) {
-				try {
-					const response = await fetch("/loadHome", { method: "post" });
-					if (!response.ok) throw new Error("Network response was not ok");
-
-					const result = await response.json();
-
-					window.location.href = result.redirectUrl;
-				} catch (error) {
-					console.error("Error fetching articles:", error);
-				}
+				window.location.href = "/home";
 			});
 		}
 	}
@@ -297,16 +288,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = homeButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadHome", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/home";
 				});
 			}
 		}
@@ -318,16 +300,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = newsButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadArticlesView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/articles";
 				});
 			}
 		}
@@ -339,16 +312,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = projectsButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadProjectsView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching projects:", error);
-					}
+					window.location.href = "/projects";
 				});
 			}
 		}
@@ -360,16 +324,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = aboutButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadAbout", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/about";
 				});
 			}
 		}
@@ -381,16 +336,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = contactsButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadContacts", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/contacts";
 				});
 			}
 		}
@@ -402,16 +348,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = adminNewsButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadAdminArticleView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/adminArticleView";
 				});
 			}
 		}
@@ -424,16 +361,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 				button.addEventListener("click", async function (event) {
 					// Redirect the user to the create article form.
-					try {
-						const response = await fetch("/loadCreateArticleView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/createArticle";
 				});
 			}
 		}
@@ -445,16 +373,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 				const button = adminProjectsButtons[i];
 
 				button.addEventListener("click", async function (event) {
-					try {
-						const response = await fetch("/loadAdminProjectView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/adminProjectView";
 				});
 			}
 		}
@@ -467,16 +386,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 				button.addEventListener("click", async function (event) {
 					// Redirect the user to the create article form.
-					try {
-						const response = await fetch("/loadCreateProjectView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/createProject";
 				});
 			}
 		}

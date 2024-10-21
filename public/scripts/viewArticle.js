@@ -31,15 +31,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	try {
-		const articleId = { id: sessionStorage.getItem("id") };
+		const articleId = sessionStorage.getItem("id");
 
-		const response = await fetch("/getSpecificArticle", {
-			method: "post",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(articleId),
-		});
+		const response = await fetch(`/getSpecificArticle?id=${articleId}`);
 
 		if (!response.ok) throw new Error("Network response was not ok");
 

@@ -37,15 +37,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	try {
-		const articleId = { id: sessionStorage.getItem("id") };
+		const articleId = sessionStorage.getItem("id");
 
-		const response = await fetch("/getSpecificArticle", {
-			method: "post",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(articleId),
-		});
+		const response = await fetch(`/getSpecificArticle?id=${articleId}`);
 
 		if (!response.ok) throw new Error("Network response was not ok");
 
@@ -72,13 +66,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		}
 
 		try {
-			const response = await fetch(`/getImageSize`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ image_path: imagesPath[0] }),
-			});
+			const response = await fetch(`/getImageSize?imagesPath=${imagesPath[0]}`);
 
 			if (!response.ok) throw new Error("Network response was not ok");
 
@@ -109,13 +97,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const path = imagesPath[i];
 
 			try {
-				const response = await fetch(`/getImageSize`, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ image_path: imagesPath[i] }),
-				});
+				const response = await fetch(`/getImageSize?imagesPath=${imagesPath[i]}`);
 
 				if (!response.ok) throw new Error("Network response was not ok");
 
@@ -362,7 +344,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		try {
 			const response = await fetch("/deleteArticle", {
-				method: "PUT",
+				method: "DELETE",
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -374,7 +356,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const result = await response.text();
 			console.log(result);
 
-			await redirectBack();
+			window.location.href = "/adminArticleView";
 		} catch (error) {
 			console.error("Error:", error.message);
 		}
@@ -385,7 +367,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			return;
 		}
 
-		await redirectBack();
+		window.location.href = "/adminArticleView";
 	});
 
 	async function updateImageDir() {
@@ -506,20 +488,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.error("Error:", error.message);
 		}
 	}
-
-	async function redirectBack() {
-		try {
-			const response = await fetch("/loadadminArticleView", { method: "post" });
-			if (!response.ok) throw new Error("Network response was not ok");
-
-			const result = await response.json();
-
-			window.location.href = result.redirectUrl;
-		} catch (error) {
-			console.error("Error fetching articles:", error);
-		}
-	}
-
+	
 	window.addEventListener("resize", function (event) {
 		if (articleImageHolder.children[0]) {
 			if (window.innerWidth > 1000 || window.innerWidth < 500) {

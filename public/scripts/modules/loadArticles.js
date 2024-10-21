@@ -83,27 +83,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 				if (isAdminView) {
 					// Redirect the user to the edit article form.
-					try {
-						const response = await fetch("/loadEditArticleView", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/editArticleView";
 				} else {
-					try {
-						const response = await fetch("/loadViewArticle", { method: "post" });
-						if (!response.ok) throw new Error("Network response was not ok");
-
-						const result = await response.json();
-
-						window.location.href = result.redirectUrl;
-					} catch (error) {
-						console.error("Error fetching articles:", error);
-					}
+					window.location.href = "/viewArticle";
 				}
 			});
 

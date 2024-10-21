@@ -52,15 +52,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 	}
 
 	try {
-		const projectId = { id: sessionStorage.getItem("id") };
+		const projectId = sessionStorage.getItem("id");
 
-		const response = await fetch("/getSpecificProject", {
-			method: "post",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(projectId),
-		});
+		const response = await fetch(`/getSpecificProject?id=${projectId}`);
 
 		if (!response.ok) throw new Error("Network response was not ok");
 
@@ -87,13 +81,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		}
 
 		try {
-			const response = await fetch(`/getImageSize`, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ image_path: imagesPath[0] }),
-			});
+			const response = await fetch(`/getImageSize?imagesPath=${imagesPath[0]}`);
 
 			if (!response.ok) throw new Error("Network response was not ok");
 
@@ -124,13 +112,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const path = imagesPath[i];
 
 			try {
-				const response = await fetch(`/getImageSize`, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ image_path: imagesPath[i] }),
-				});
+				const response = await fetch(`/getImageSize?imagesPath=${imagesPath[i]}`);
 
 				if (!response.ok) throw new Error("Network response was not ok");
 
@@ -211,13 +193,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			fileDisplay.appendChild(fileDiv);
 
 			try {
-				const response = await fetch(`/getImageSize`, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ image_path: fileUrl }),
-				});
+				const response = await fetch(`/getImageSize?imagesPath=${fileUrl}`);
 
 				if (!response.ok) throw new Error("Network response was not ok");
 
@@ -586,7 +562,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 		await updateProjectData(); // Update the data of the artilce.
 
 		// Redirect the user back to all projects.
-		await redirectBack();
+		window.location.href = "/adminProjectView";
 	});
 
 	deleteButton.addEventListener("click", async function (event) {
@@ -596,7 +572,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 		try {
 			const response = await fetch("/deleteProject", {
-				method: "PUT",
+				method: "DELETE",
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -608,7 +584,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			const result = await response.text();
 			console.log(result);
 
-			await redirectBack();
+			window.location.href = "/adminProjectView";
 		} catch (error) {
 			console.error("Error:", error.message);
 		}
@@ -619,7 +595,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			return;
 		}
 
-		await redirectBack();
+		window.location.href = "/adminProjectView";
 	});
 
 	async function updateImageDir() {
@@ -820,19 +796,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 			console.log(result);
 		} catch (error) {
 			console.error("Error:", error.message);
-		}
-	}
-
-	async function redirectBack() {
-		try {
-			const response = await fetch("/loadadminProjectView", { method: "post" });
-			if (!response.ok) throw new Error("Network response was not ok");
-
-			const result = await response.json();
-
-			window.location.href = result.redirectUrl;
-		} catch (error) {
-			console.error("Error fetching projects:", error);
 		}
 	}
 

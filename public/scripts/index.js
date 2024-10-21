@@ -73,16 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 			articleWindowDiv.addEventListener("click", async function () {
 				sessionStorage.setItem("id", this.id);
 
-				try {
-					const response = await fetch("/loadViewArticle", { method: "post" });
-					if (!response.ok) throw new Error("Network response was not ok");
-
-					const result = await response.json();
-
-					window.location.href = result.redirectUrl;
-				} catch (error) {
-					console.error("Error fetching articles:", error);
-				}
+				window.location.href = "/viewArticle";
 			});
 
 			articleWrapperDiv.appendChild(articleWindowDiv);
@@ -196,15 +187,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 	});
 
 	moreButton.addEventListener("click", async function (event) {
-		try {
-			const response = await fetch("/loadArticlesView", { method: "post" });
-			if (!response.ok) throw new Error("Network response was not ok");
-
-			const result = await response.json();
-
-			window.location.href = result.redirectUrl;
-		} catch (error) {
-			console.error("Error fetching articles:", error);
-		}
+		window.location.href = "/articles";
 	});
 });
